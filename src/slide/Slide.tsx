@@ -31,7 +31,7 @@ export default function Slide() {
 
   return (
     <List
-      sx={{ width: "100%", maxWidth: 360, bgcolor: "#e5e5e5", paddingTop:"30px", height:"100vh" }}
+      sx={{ width: "100%", maxWidth: 360, bgcolor: "#f8f9fa", paddingTop:"30px", height:"100vh" }}
       component="nav"
       aria-labelledby="nested-list-subheader"
       // subheader={
