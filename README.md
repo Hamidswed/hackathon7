@@ -1,1 +1,1 @@
-# Hackarhon - Group7
+# Hackathon - Group7
