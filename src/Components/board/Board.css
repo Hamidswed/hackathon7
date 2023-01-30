@@ -1,0 +1,21 @@
+.board-container{
+  margin: 20px 40px;
+}
+.board-navbar{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+.board-cols{
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+.board-col{
+  width: 40%;
+  min-height: 200px;
+  background-color: #e9ecef;
+  text-align: center;
+  padding: 10px 0;
+}
