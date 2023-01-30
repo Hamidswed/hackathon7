@@ -1,5 +1,6 @@
 .board-container{
   margin: 20px 40px;
+  width: 100%;
 }
 .board-navbar{
   display: flex;
@@ -13,7 +14,7 @@
   margin-top: 40px;
 }
 .board-col{
-  width: 40%;
+  width: 20%;
   min-height: 200px;
   background-color: #e9ecef;
   text-align: center;

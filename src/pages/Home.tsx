@@ -1,10 +1,4 @@
-import Board from "../Components/board/Board";
-import Slider from "./../Components/slide/Slide";
-
 const Home = () => {
-  return (
-    <div className="home-page">
-    </div>
-  );
+  return <div>home</div>;
 };
 export default Home;
