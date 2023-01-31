@@ -17,6 +17,7 @@ import { initializeApp } from 'firebase/app'
 import {config} from './config/config'
 import './App.css';
 import Slide from './Components/slide/Slide';
+import Footer from './Components/footer/Footer';
 
 initializeApp(config.firebaseConfig)
 
@@ -26,7 +27,6 @@ function App() {
       <Header />
       <div className="App-page">
         <Slide />
-      <Header/>
       <Routes>  
       <Route path='/' element={<Home/>}/> /* show only if user not sign up */
         <Route path='/tasks' element={<Tasks/>}/>
@@ -41,7 +41,9 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
+
     </div>
+    <Footer/>
     </div>
   );
 }
