@@ -6,7 +6,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import './header.css'
 
-const pages = ['Your job', 'Projects', 'Filters', 'Dashboards', 'Users', 'Applications'];
+const pages = ['Your job', 'Projects', 'Filters', 'Dashboards', 'Users', 'Applications', 'Login'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -180,10 +180,10 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-
     </Toolbar>
     </Container>
     </AppBar>
+
   )
 }
 

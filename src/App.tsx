@@ -7,10 +7,19 @@ import Header from './Components/header/Header';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Tasks from './pages/Tasks';
+
 import Filters from './pages/Filters';
 import Dashboards from './pages/Dashboards';
 import Users from './pages/Users';
 import Applications from './pages/Applications';
+// import { AuthProvider } from './provider/AuthProvider';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPages';
+import { initializeApp } from 'firebase/app'
+import {config} from './config/config'
+
+initializeApp(config.firebaseConfig)
+
 
 function App() {
   return (
@@ -26,8 +35,13 @@ function App() {
         <Route path='/dashboards' element={<Dashboards/>}/>
         <Route path='/users' element={<Users/>}/>
         <Route path='/applications' element={<Applications/>}/>
+        {/* <Route path='/login' element={<AuthProvider/>}/> */}
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignupPage />} />
+
       </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
