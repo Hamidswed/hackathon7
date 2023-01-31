@@ -15,5 +15,39 @@
                 "icon": "#icon-linkedin"
               }
         ]
+    },
+    {
+        "name": "Adel Ansari",
+        "id": "adel",
+        "position": "Full-Stack Developer",
+        "links": [
+            {
+                "name": "github",
+                "href": "https://github.com/adelansari",
+                "icon": "#icon-github"
+            },
+            {
+                "name": "linkedin",
+                "href": "https://www.linkedin.com/in/adel-ansari/",
+                "icon": "#icon-linkedin"
+              }
+        ]
+    },
+    {
+        "name": "Hamid",
+        "id": "hamid",
+        "position": "Team Lead",
+        "links": [
+            {
+                "name": "github",
+                "href": "https://github.com/Hamidswed",
+                "icon": "#icon-github"
+            },
+            {
+                "name": "linkedin",
+                "href": "https://ddddd",
+                "icon": "#icon-linkedin"
+              }
+        ]
     }
 ]
