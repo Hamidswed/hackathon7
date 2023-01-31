@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import Risks from './pages/Risks';
 import Tasks from './pages/Tasks';
 import Timesheet from './pages/Timesheet';
+import { AuthProvider } from './provider/AuthProvider';
 
 function App() {
   return (
@@ -25,8 +26,10 @@ function App() {
         <Route path='/timesheet' element={<Timesheet/>}/>
         <Route path='/issues' element={<Issues/>}/>
         <Route path='/risks' element={<Risks/>}/>
+        <Route path='/login' element={<AuthProvider/>}/>
       </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
