@@ -27,7 +27,6 @@ function App() {
       <Header />
       <div className="App-page">
         <Slide />
-      <Header/>
       <Routes>  
       <Route path='/' element={<Home/>}/> /* show only if user not sign up */
         <Route path='/tasks' element={<Tasks/>}/>
