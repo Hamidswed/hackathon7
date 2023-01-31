@@ -15,8 +15,11 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPages';
 import { initializeApp } from 'firebase/app'
 import {config} from './config/config'
+import AuthRoute from './Components/auth/AuthRoute';
 
 initializeApp(config.firebaseConfig)
+
+export interface IApplicationProps {}
 
 function App() {
   return (
@@ -33,7 +36,7 @@ function App() {
         <Route path='/issues' element={<Issues/>}/>
         <Route path='/risks' element={<Risks/>}/>
         {/* <Route path='/login' element={<AuthProvider/>}/> */}
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/login' element={<AuthRoute><LoginPage /></AuthRoute>} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
       </BrowserRouter>

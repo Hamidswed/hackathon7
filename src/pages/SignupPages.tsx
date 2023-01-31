@@ -5,9 +5,9 @@ import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { object, string, TypeOf } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormInput from "../Components/form/Form";
-import { ReactComponent as GoogleLogo } from "../assets/google.svg";
-import { ReactComponent as GitHubLogo } from "../assets/github.svg";
-import { LinkItem, OauthMuiLink } from "./LoginPage";
+import { LinkItem } from "./LoginPage";
+import GoogleIcon from "@mui/icons-material/Google"
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 // 👇 SignUp Schema with Zod
 const signupSchema = object({
@@ -114,14 +114,34 @@ const SignupPage: FC = () => {
                                         Sign up using another provider:
                                     </Typography>
                                     <Box display="flex" flexDirection="column" sx={{ paddingLeft: { sm: "3rem" }, rowGap: "1rem" }}>
-                                        <OauthMuiLink href="">
-                                            <GoogleLogo style={{ height: "2rem" }} />
+                                    <LoadingButton
+                                            loading={false}
+                                            // type="submit"
+                                            variant="outlined"
+                                            sx={{
+                                                py: "0.8rem",
+                                                mt: 2,
+                                                width: "80%",
+                                                marginInline: "auto",
+                                            }}
+                                            startIcon={<GoogleIcon />}
+                                        >
                                             Google
-                                        </OauthMuiLink>
-                                        <OauthMuiLink href="">
-                                            <GitHubLogo style={{ height: "2rem" }} />
-                                            GitHub
-                                        </OauthMuiLink>
+                                        </LoadingButton>
+                                        <LoadingButton
+                                            loading={false}
+                                            // type="submit"
+                                            variant="outlined"
+                                            sx={{
+                                                py: "0.8rem",
+                                                mt: 2,
+                                                width: "80%",
+                                                marginInline: "auto",
+                                            }}
+                                            startIcon={<GitHubIcon />}
+                                        >
+                                            Github
+                                        </LoadingButton>
                                     </Box>
                                 </Grid>
                             </Grid>
