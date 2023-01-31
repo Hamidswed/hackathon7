@@ -10,13 +10,14 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { Divider } from "@mui/material";
 import CodeIcon from "@mui/icons-material/Code";
-import ApiIcon from '@mui/icons-material/Api';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
-import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import SettingsIcon from '@mui/icons-material/Settings';
-import RouteIcon from '@mui/icons-material/Route';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import ApiIcon from "@mui/icons-material/Api";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
+import SettingsIcon from "@mui/icons-material/Settings";
+import RouteIcon from "@mui/icons-material/Route";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import { Link } from "react-router-dom";
 
 export default function Slide() {
   const [devOpen, setDevOpen] = React.useState(false);
@@ -31,7 +32,13 @@ export default function Slide() {
 
   return (
     <List
-      sx={{ width: "100%", maxWidth: 360, bgcolor: "#f8f9fa", paddingTop:"30px", height:"100vh" }}
+      sx={{
+        width: "100%",
+        maxWidth: 300,
+        bgcolor: "#f8f9fa",
+        paddingTop: "30px",
+        height: "100vh",
+      }}
       component="nav"
       aria-labelledby="nested-list-subheader"
       // subheader={
@@ -61,12 +68,14 @@ export default function Slide() {
             </ListItemIcon>
             <ListItemText primary="Road map" />
           </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Board" />
-          </ListItemButton>
+          <Link to="/board" style={{color:"black"}}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Board" />
+            </ListItemButton>
+          </Link>
         </List>
       </Collapse>
       <ListItemButton onClick={handleClickDev}>
@@ -86,7 +95,7 @@ export default function Slide() {
           </ListItemButton>
         </List>
       </Collapse>
-      <Divider sx={{margin:"10px 0"}} />
+      <Divider sx={{ margin: "10px 0" }} />
       <ListItemButton>
         <ListItemIcon>
           <DocumentScannerIcon />
