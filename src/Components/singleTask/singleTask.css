@@ -14,3 +14,32 @@
     border-radius:0 0 10px 10px;
 }
 
+.task-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.task-subtitle {
+    padding: 0;
+    margin: 0 0 0 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.todolist__subtitle:hover {
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+
+.task-subtitle__important {
+    font-weight: bold;
+    color: rgb(53, 23, 252);
+}
+
+.task-subtitle__done {
+    text-decoration: line-through;
+}
