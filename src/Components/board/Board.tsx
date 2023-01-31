@@ -5,9 +5,20 @@ import "./Board.css";
 import Filter from "./Filter";
 import Breadcrumb from "./Breadcrumb";
 import { Button } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
+import IssueList from "../issue/IssueList";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { actions } from './../../redux/slice/issue';
 
 const Board = () => {
+  const issueState = useSelector((state:RootState)=>state.issue)
+  const idState = useSelector((state:RootState)=>state.id)
+  const dispatch = useDispatch()
+  const createIssueHandler = () => {
+    dispatch(actions.addToList({id:idState,name:`box${idState}`}))
+  };
+  console.log(issueState)
   return (
     <div className="board-container">
       <div>
@@ -41,7 +52,8 @@ const Board = () => {
       </div>
       <div className="board-cols">
         <div className="board-col">
-          <Button startIcon={<AddIcon />}>
+          <IssueList />
+          <Button startIcon={<AddIcon />} onClick={createIssueHandler}>
             Create issue
           </Button>
         </div>
