@@ -13,12 +13,16 @@ import { actions } from './../../redux/slice/issue';
 
 const Board = () => {
   const issueState = useSelector((state:RootState)=>state.issue)
+  const issueTitle = useSelector((state:RootState)=>state.issueTitle)
+  const userInput = useSelector((state:RootState)=>state.userInput)
   const idState = useSelector((state:RootState)=>state.id)
   const dispatch = useDispatch()
   const createIssueHandler = () => {
-    dispatch(actions.addToList({id:idState,name:`box${idState}`}))
+    dispatch(actions.addToList({id:idState,name:userInput}))
   };
   console.log(issueState)
+  console.log("user input:",userInput);
+  console.log("issue list:",issueTitle);
   return (
     <div className="board-container">
       <div>
