@@ -1,26 +1,12 @@
-.header {
-    padding: 20px 50px;
-    border-bottom: 1px solid rgb(224, 211, 211);
-    margin-bottom: 20px;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .nav-link {
-    font-weight: 900;
-    font-size: 16px;
-    text-decoration: none;
-    color: #9c02a1;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
     text-transform: uppercase;
+    min-width: 64px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: white;
+    display: block;
 }
-
-.nav-link:hover {
-    color: #f00f6d;
-}
- .nav-link:not(:last-child) {
-    margin-right: 20px;
- }
