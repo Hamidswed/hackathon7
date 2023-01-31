@@ -143,6 +143,12 @@ const Header = () => {
               >
 <Link to="applications" className="nav-link">Applications</Link>
               </Button>
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="login" className="nav-link">Login</Link>
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
