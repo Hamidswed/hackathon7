@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Natalia Polovynko",
+        "id": "natalia",
+        "position": "Full-Stack Developer",
+        "links": [
+            {
+                "name": "github",
+                "href": "https://github.com/Afrikanochka",
+                "icon": "#icon-github"
+            },
+            {
+                "name": "linkedin",
+                "href": "https://www.linkedin.com/in/natalia-polovynko-13660321b/",
+                "icon": "#icon-linkedin"
+              }
+        ]
+    }
+]

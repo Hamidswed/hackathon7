@@ -1,0 +1,91 @@
+.footer-container {
+    padding-bottom: 15px;
+}
+
+.FooterWrapper {
+    position: relative;
+    /* margin-top: 666px; */
+    @media screen and (min-width: 768px) {
+      /* margin-top: 900px; */
+    }
+    @media screen and (min-width: 1280px) {
+      /* margin-top: 10px; */
+    }
+  }
+  .footerIcon {
+    fill: #3c4148;
+    animation-name: changeBookColor;
+    animation-duration: 2000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.footerIcon:hover {
+  animation-play-state: paused;
+}
+  @keyframes changeBookColor {
+    0% {
+      fill: #2b190c;
+    }
+    70% {
+      fill: #6D7A8D;
+    }
+    100% {
+      fill: #FF6B08;
+    }
+  }
+  .footerText {
+    @media screen and (min-width: 280px) {
+      color: #6D7A8D;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      line-height: 1.22;
+      margin-top: 60px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+    }
+    @media screen and (min-width: 768px) {
+        .footerText {
+            width: 450px;
+            font-size: 16px;
+            margin-top: 60px;
+          }
+        }
+    @media screen and (min-width: 1280px) {
+        .footerText {
+            margin-top: 80px;
+          width: 900px;
+        }
+    }
+  }
+  .footerButton {
+    color: #6D7A8D;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.22;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    animation-name: changeColor;
+    animation-duration: 2000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.footerButton:hover {
+  animation-play-state: paused;
+}
+  @keyframes changeColor {
+    0% {
+      color: #6D7A8D;
+    }
+    70% {
+      color: #131313;
+    }
+    100% {
+      color: #FF6B08;
+    }
+  }

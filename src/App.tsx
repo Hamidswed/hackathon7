@@ -16,6 +16,8 @@ import SignupPage from './pages/SignupPages';
 import { initializeApp } from 'firebase/app'
 import {config} from './config/config'
 import './App.css';
+import Slide from './Components/slide/Slide';
+import Footer from './Components/footer/Footer';
 
 initializeApp(config.firebaseConfig)
 
@@ -40,6 +42,9 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
+
+    </div>
+    <Footer/>
     </div>
   );
 }
