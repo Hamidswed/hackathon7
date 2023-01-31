@@ -34,6 +34,10 @@ const Header = () => {
         <Link to="risks" className="nav-link">
             Risks page
         </Link>
+
+        <Link to="login" className="nav-link">
+            Login
+        </Link>
     </nav>
     </>
   )
