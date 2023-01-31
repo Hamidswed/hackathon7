@@ -9,20 +9,34 @@ import AddIcon from "@mui/icons-material/Add";
 import IssueList from "../issue/IssueList";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { actions } from './../../redux/slice/issue';
+import { actions } from "./../../redux/slice/issue";
+import { DndContext } from "@dnd-kit/core";
+import {useDroppable} from '@dnd-kit/core';
 
 const Board = () => {
-  const issueState = useSelector((state:RootState)=>state.issue)
-  const issueTitle = useSelector((state:RootState)=>state.issueTitle)
-  const userInput = useSelector((state:RootState)=>state.userInput)
-  const idState = useSelector((state:RootState)=>state.id)
-  const dispatch = useDispatch()
+  const issueState = useSelector((state: RootState) => state.issue);
+  const issueTitle = useSelector((state: RootState) => state.issueTitle);
+  const userInput = useSelector((state: RootState) => state.userInput);
+  const idState = useSelector((state: RootState) => state.id);
+  const dispatch = useDispatch();
   const createIssueHandler = () => {
-    dispatch(actions.addToList({id:idState,name:userInput}))
+    dispatch(actions.addToList({ id: idState, name: userInput }));
   };
-  console.log(issueState)
-  console.log("user input:",userInput);
-  console.log("issue list:",issueTitle);
+  console.log(issueState);
+  console.log("user input:", userInput);
+  console.log("issue list:", issueTitle);
+
+  const {setNodeRef: setFirstDroppableRef} = useDroppable({
+    id: 'droppable-1',
+  });
+  const {setNodeRef: setSecondDroppableRef} = useDroppable({
+    id: 'droppable-2',
+  });
+  const {setNodeRef: setThirdDroppableRef} = useDroppable({
+    id: 'droppable-2',
+  });
+
+  
   return (
     <div className="board-container">
       <div>
@@ -54,16 +68,26 @@ const Board = () => {
           <Filter />
         </div>
       </div>
-      <div className="board-cols">
-        <div className="board-col">
-          <IssueList />
-          <Button startIcon={<AddIcon />} onClick={createIssueHandler}>
-            Create issue
-          </Button>
+      <DndContext>
+        <div className="board-cols">
+          <div className="board-col" ref={setFirstDroppableRef}>
+            <p>
+              To Do{" "}
+              {issueState.length === 0
+                ? "issue"
+                : issueState.length === 1
+                ? `${issueState.length} issue`
+                : `${issueState.length} issues`}
+            </p>
+            <IssueList />
+            <Button startIcon={<AddIcon />} onClick={createIssueHandler}>
+              Create issue
+            </Button>
+          </div>
+          <div className="board-col" ref={setSecondDroppableRef}>col2</div>
+          <div className="board-col" ref={setThirdDroppableRef}>col3</div>
         </div>
-        <div className="board-col">col2</div>
-        <div className="board-col">col3</div>
-      </div>
+      </DndContext>
     </div>
   );
 };

@@ -16,7 +16,6 @@ export default function Filter() {
   const [age, setAge] = useState("");
 
   const handleChange = (value: string): void => {
-    console.log(value, "value");
     setAge(value);
 
     // if (value === "Name") {
@@ -31,9 +30,15 @@ export default function Filter() {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "flex-end",justifySelf:"flex-end" }}>
-      <FormControl sx={{ width: "150px", }} size="small">
-        <InputLabel id="demo-simple-select-label">Sort</InputLabel>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "flex-end",
+        justifySelf: "flex-end",
+      }}
+    >
+      <FormControl sx={{ width: "150px" }} size="small">
+        <InputLabel id="demo-simple-select-label">Group</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
