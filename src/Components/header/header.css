@@ -1,0 +1,12 @@
+.nav-link {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    min-width: 64px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: white;
+    display: block;
+}

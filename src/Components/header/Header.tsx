@@ -4,7 +4,9 @@ import {AppBar, Box, Toolbar, IconButton, Typography, MenuItem, Tooltip, Menu, C
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Tasks', 'Projects', 'Filters', 'Dashboards', 'Users', 'Applications'];
+import './header.css'
+
+const pages = ['Your job', 'Projects', 'Filters', 'Dashboards', 'Users', 'Applications'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -104,16 +106,43 @@ const Header = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          
+              <Button          
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-
-            {page}
+ <Link to="tasks" className="nav-link">Your job</Link>
               </Button>
-            ))}
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="projects" className="nav-link">Projects</Link>
+              </Button>
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="filters" className="nav-link">Filters</Link>
+              </Button>
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="dashboards" className="nav-link">Dashboards</Link>
+              </Button>
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="users" className="nav-link">Users</Link>
+              </Button>
+              <Button          
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+<Link to="applications" className="nav-link">Applications</Link>
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -146,31 +175,6 @@ const Header = () => {
             </Menu>
           </Box>
 
-    {/* <nav className="navigation">
-        <Link to="tasks" className="nav-link">
-            Tasks
-        </Link>
-        
-        <Link to="projects" className="nav-link">
-            Projects
-        </Link>
-       
-        <Link to="filters" className="nav-link">
-            Filters
-        </Link>
-        
-        <Link to="dashboards" className="nav-link">
-            Dashboards
-        </Link>
-
-        <Link to="users" className="nav-link">
-            Users
-        </Link>
-
-        <Link to="applications" className="nav-link">
-        Applications
-        </Link>
-    </nav> */}
     </Toolbar>
     </Container>
     </AppBar>
