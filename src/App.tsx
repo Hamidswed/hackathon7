@@ -13,6 +13,10 @@ import Timesheet from './pages/Timesheet';
 // import { AuthProvider } from './provider/AuthProvider';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPages';
+import { initializeApp } from 'firebase/app'
+import {config} from './config/config'
+
+initializeApp(config.firebaseConfig)
 
 function App() {
   return (
