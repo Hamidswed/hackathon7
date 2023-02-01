@@ -12,6 +12,7 @@ import { RootState } from "../../redux/store";
 import { actions } from "./../../redux/slice/issue";
 import { DndContext } from "@dnd-kit/core";
 import {useDroppable} from '@dnd-kit/core';
+import ProgressList from "../issue/progress/ProgressList";
 
 const Board = () => {
   const issueState = useSelector((state: RootState) => state.issue);
@@ -84,7 +85,10 @@ const Board = () => {
               Create issue
             </Button>
           </div>
-          <div className="board-col" ref={setSecondDroppableRef}>IN PROGRESS</div>
+          <div className="board-col" ref={setSecondDroppableRef}>
+            <p>IN PROGRESS</p>
+            <ProgressList/>
+          </div>
           <div className="board-col" ref={setThirdDroppableRef}>DONE</div>
         </div>
       </DndContext>
