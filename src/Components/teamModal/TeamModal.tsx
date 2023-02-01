@@ -1,14 +1,8 @@
 import React from 'react'
 
-import photos from "./team-photos";
-import teamdata from "./team-data.json";
+import teamData from "./team-data.js";
 import sprite from "./sprite.svg";
 import './teamModal.css'
-
-
-// type Props = {
-//   photos: Photos[]
-// }
 
 const TeamModal = () => {
   return (
@@ -18,13 +12,13 @@ const TeamModal = () => {
           "Our development team" <b>"Team 7"</b>
         </h2>
         <ul className="TeamModalList">
-          {teamdata.map((data) => (
+          {teamData.map((data) => (
             <li className="TeamModalListItem" key={data.name}>
-              {/* <img
-                src={photos[data.id]}
+              <img
+                src={data.photo}
                 className="TeamMemberPhoto"
                 alt={data.name}
-              /> */}
+              />
           
               <div>
                 <h3 className="TeamMemberName">{data.name}</h3>

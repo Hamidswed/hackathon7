@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import {Stack, TextField, Button} from '@mui/material/';
+import {Stack, Input, Button} from '@mui/material/';
 
 import { SingleTaskInterface, tasksDefault } from '../../types/tasksType'
 import SingleTask from '../singleTask/SingleTask'
@@ -10,6 +10,8 @@ interface AllTasksInterface {
   onToggleDone: (value : number) => void,
   onToggleImportant: (value : number) => void
 }
+
+const ariaLabel = { 'aria-label': 'description' };
 
 const Alltasks = ({taskListArray,onDelete,onToggleDone, onToggleImportant}: AllTasksInterface ) => {
   const [task, setTask] = useState<SingleTaskInterface[] | []>(tasksDefault);
@@ -79,13 +81,9 @@ const addNewTaskInState = (subtitle: string) => {
       autoComplete="off"
       onSubmit={onSubmitTaskForm}
     >
-<TextField
-        hiddenLabel
-        id="filled-hidden-label-normal"
-        defaultValue="Normal"
-        variant="filled"
+<Input
+        placeholder="What do you want to do?" inputProps={ariaLabel}
         type="text"
-        placeholder="What do you want to do?"
         value={textForNewTask}
         onChange={(e) => {setTextForNewTask(e.target.value)}}
       />
