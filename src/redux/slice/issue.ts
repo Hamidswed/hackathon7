@@ -6,12 +6,14 @@ type InitialType={
   id:number
   userInput:string
   issueTitle:string[]
+  progress:IssueType[]
 }
 const initialState:InitialType={
   issue:[],
   id:1,
   userInput:"",
-  issueTitle:[]
+  issueTitle:[],
+  progress:[]
 }
 
 const issueSlice = createSlice({
@@ -38,6 +40,9 @@ const issueSlice = createSlice({
     },
     addToIssueTitle:(state)=>{
       state.issueTitle.push(state.userInput)
+    },
+    addToProgress:(state,action)=>{
+      state.progress.push(action.payload)
     }
   }
 })

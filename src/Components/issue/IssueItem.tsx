@@ -53,6 +53,10 @@ const IssueItem = ({ item }: PropType) => {
       setIsModal(true);
     }
   };
+  const addToProgress = () => {
+    dispatch(actions.addToProgress(item));
+    dispatch(actions.removeFromList(item.id));
+  };
   console.log("item:", item);
   return (
     <div onClick={handleOpen}>
@@ -74,6 +78,11 @@ const IssueItem = ({ item }: PropType) => {
           <Button size="small" onClick={removeIssueHandler}>
             Remove
           </Button>
+          {isEnter ? (
+            <Button size="small" onClick={addToProgress}>
+              +Progress
+            </Button>
+          ) : null}
         </CardActions>
       </Card>
       <Modal
