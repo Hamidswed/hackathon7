@@ -15,11 +15,14 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPages';
 import { initializeApp } from 'firebase/app'
 import {config} from './config/config'
+import AuthRoute from './Components/auth/AuthRoute';
 import './App.css';
 import Slide from './Components/slide/Slide';
 import Footer from './Components/footer/Footer';
 
 initializeApp(config.firebaseConfig);
+
+export interface IApplicationProps {}
 
 function App() {
   return (
@@ -38,7 +41,7 @@ function App() {
         <Route path='/users' element={<Users/>}/>
         <Route path='/applications' element={<Applications/>}/>
         {/* <Route path='/login' element={<AuthProvider/>}/> */}
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/login' element={<AuthRoute><LoginPage /></AuthRoute>} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
      </div>

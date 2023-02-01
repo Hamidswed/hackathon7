@@ -1,14 +1,17 @@
-import { Container, Grid, Box, Typography, Stack, Link as MuiLink, FormControlLabel, Checkbox } from "@mui/material";
+import { Container, Grid, Box, Typography, Stack, Link as MuiLink, FormControlLabel, Checkbox, Icon } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { literal, object, string, TypeOf } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormInput from "../Components/form/Form";
-import { ReactComponent as GoogleLogo } from "../assets/google.svg";
-import { ReactComponent as GitHubLogo } from "../assets/github.svg";
+// import { ReactComponent as GoogleLogo } from "../assets/google.svg";
+// import { ReactComponent as GitHubLogo } from "../assets/github.svg";
 import styled from "@emotion/styled";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import GoogleIcon from "@mui/icons-material/Google"
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 // 👇 Styled React Route Dom Link Component
 export const LinkItem = styled(Link)`
@@ -20,24 +23,6 @@ export const LinkItem = styled(Link)`
     }
 `;
 
-// 👇 Styled Material UI Link Component
-export const OauthMuiLink = styled(MuiLink)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f6f7;
-    border-radius: 1;
-    padding: 0.6rem 0;
-    column-gap: 1rem;
-    text-decoration: none;
-    color: #393e45;
-    font-weight: 500;
-    cursor: pointer;
-    &:hover {
-        background-color: #fff;
-        box-shadow: 0 1px 13px 0 rgb(0 0 0 / 15%);
-    }
-`;
 
 // 👇 Login Schema with Zod
 const loginSchema = object({
@@ -65,6 +50,25 @@ const LoginPage: FC = () => {
     // 👇 Submit Handler
     const onSubmitHandler: SubmitHandler<ILogin> = (values: ILogin) => {
         console.log(values);
+    };
+
+    // 👇 Signning in with Google
+    const auth = getAuth();
+    const navigate = useNavigate();
+    const [authing, setAuthing] = useState(false);
+
+    const signInWithGoogle = async () => {
+        setAuthing(true);
+
+        signInWithPopup(auth, new GoogleAuthProvider())
+            .then((response) => {
+                console.log(response.user.uid);
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(error);
+                setAuthing(false);
+            });
     };
 
     // 👇 JSX to be rendered
@@ -152,14 +156,39 @@ const LoginPage: FC = () => {
                                         Log in with another provider:
                                     </Typography>
                                     <Box display="flex" flexDirection="column" sx={{ paddingLeft: { sm: "3rem" }, rowGap: "1rem" }}>
-                                        <OauthMuiLink href="">
-                                            <GoogleLogo style={{ height: "2rem" }} />
+                                    <LoadingButton
+                                            loading={false}
+                                            // type="submit"
+                                            variant="outlined"
+                                            sx={{
+                                                py: "0.8rem",
+                                                mt: 2,
+                                                width: "80%",
+                                                marginInline: "auto",
+                                            }}
+                                            startIcon={<GoogleIcon />}
+                                            onClick={() => signInWithGoogle()}
+                                            disabled={authing}
+                                        >
                                             Google
-                                        </OauthMuiLink>
-                                        <OauthMuiLink href="">
-                                            <GitHubLogo style={{ height: "2rem" }} />
-                                            GitHub
-                                        </OauthMuiLink>
+                                        </LoadingButton>
+                                        <LoadingButton
+                                            loading={false}
+                                            // type="submit"
+                                            variant="outlined"
+                                            sx={{
+                                                py: "0.8rem",
+                                                mt: 2,
+                                                width: "80%",
+                                                marginInline: "auto",
+                                            }}
+                                            startIcon={<GitHubIcon />}
+                                            onClick={() => signInWithGoogle()}
+                                            disabled={authing}
+                                        >
+                                            Github
+                                        </LoadingButton>
+            
                                     </Box>
                                 </Grid>
                             </Grid>
