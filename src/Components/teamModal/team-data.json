@@ -1,5 +1,22 @@
 [
     {
+        "name": "Hamid",
+        "id": "hamid",
+        "position": "Team Lead",
+        "links": [
+            {
+                "name": "github",
+                "href": "https://github.com/Hamidswed",
+                "icon": "#icon-github"
+            },
+            {
+                "name": "linkedin",
+                "href": "https://www.linkedin.com/in/hamidreza-delshad/",
+                "icon": "#icon-linkedin"
+              }
+        ]
+    },
+    {
         "name": "Natalia Polovynko",
         "id": "natalia",
         "position": "Full-Stack Developer",
@@ -32,22 +49,6 @@
                 "icon": "#icon-linkedin"
               }
         ]
-    },
-    {
-        "name": "Hamid",
-        "id": "hamid",
-        "position": "Team Lead",
-        "links": [
-            {
-                "name": "github",
-                "href": "https://github.com/Hamidswed",
-                "icon": "#icon-github"
-            },
-            {
-                "name": "linkedin",
-                "href": "https://ddddd",
-                "icon": "#icon-linkedin"
-              }
-        ]
     }
+ 
 ]

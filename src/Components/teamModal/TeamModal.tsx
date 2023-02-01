@@ -1,11 +1,18 @@
 import React from 'react'
-// import photos from "./team-photos";
+
+import photos from "./team-photos";
 import teamdata from "./team-data.json";
 import sprite from "./sprite.svg";
+import './teamModal.css'
+
+
+// type Props = {
+//   photos: Photos[]
+// }
 
 const TeamModal = () => {
   return (
-    <div>
+    <div className='TeamModalContainer'>
         <div className="TeamModalWrapper">
         <h2 className="TeamName">
           "Our development team" <b>"Team 7"</b>

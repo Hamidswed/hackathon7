@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 
-const Modal = ({ children, onClose }: any) => {
+import './modal.css'
+
+interface ModalInterface {
+  onClose: () => void,
+  children: string,
+}
+
+const Modal = ({ children, onClose }: ModalInterface) => {
   useEffect(() => {
     window.addEventListener("keydown", onHandleEsc);
     const body:any = document.querySelector("body");
