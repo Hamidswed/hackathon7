@@ -1,4 +1,6 @@
 import React from 'react'
+import {Stack, Button} from '@mui/material/';
+
 import DeleteIcon from '../../images/icons/DeleteIcon'
 import DoneIcon from '../../images/icons/DoneIcon'
 import ImportantIcon from '../../images/icons/ImportantIcon'
@@ -21,20 +23,20 @@ const SingleTask = ({name,onDelete,onToggleDone, onToggleImportant, addNewTask, 
     <div className='task-container'>
       <li className="task-item">
             <p className={`task-subtitle ${important ? 'task-subtitle__important' : ''} ${done ? 'task-subtitle__done' : ''}`} onClick={onToggleDone}>{name}</p>
-            <div className="icon-container">
-                <button type="button" className="btn btn-outline-success" onClick={onToggleImportant}>
+            <Stack direction="row" spacing={2}>
+                <Button color="secondary" type="button" className='btn btn-outline-important' onClick={onToggleImportant}>
                     <ImportantIcon/>
-                </button>
+                </Button>
 
-                <button type="button" className="btn btn-outline-primary" onClick={onToggleDone}>
+                <Button variant="contained" color="success" type="button" className="btn btn-outline-primary" onClick={onToggleDone}>
                     <DoneIcon/>
-                </button>
+                </Button>
 
-                <button type="button" className="btn btn-outline-danger" onClick={onDelete}>
+                <Button variant="outlined" type="button" className="btn btn-outline-danger" onClick={onDelete}>
                     <DeleteIcon/>
-                </button>
+                </Button>
                 
-            </div>
+            </Stack>
 
         </li>
     </div>

@@ -89,10 +89,11 @@ const addNewTaskInState = (subtitle: string) => {
         value={textForNewTask}
         onChange={(e) => {setTextForNewTask(e.target.value)}}
       />
-      <Button variant="contained" color="success">
+      
+      <Button variant="contained" color="success" type='submit'>
       Add new task
       </Button>
-       {/* <button type="submit" className="btn">Add new task</button> */}
+       
     </Stack>
       
     </div>
