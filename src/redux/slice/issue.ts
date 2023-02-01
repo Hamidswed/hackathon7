@@ -4,10 +4,14 @@ import { IssueType } from "../../type/issueType";
 type InitialType={
   issue:IssueType[]
   id:number
+  userInput:string
+  issueTitle:string[]
 }
 const initialState:InitialType={
   issue:[],
-  id:1
+  id:1,
+  userInput:"",
+  issueTitle:[]
 }
 
 const issueSlice = createSlice({
@@ -16,10 +20,10 @@ const issueSlice = createSlice({
   reducers:{
     addToList:(state,action)=>{
       const index = state.issue.findIndex((item)=>item.id === action.payload.id)
-      if (index===-1) state.issue.push(action.payload)
+      if (index===-1) state.issue.push({...action.payload, name:state.userInput})
       else {
         state.id = (action.payload.id)+1
-        const updatedState={...action.payload, id:state.id}
+        const updatedState={id:state.id, name:state.userInput}
         state.issue.push(updatedState)
       }
     },
@@ -28,6 +32,12 @@ const issueSlice = createSlice({
         (item) => item.id !== action.payload
       );
       state.issue = updatedState;
+    },
+    userInputHandler:(state,action)=>{
+      state.userInput = action.payload
+    },
+    addToIssueTitle:(state)=>{
+      state.issueTitle.push(state.userInput)
     }
   }
 })
