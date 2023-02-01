@@ -16,6 +16,7 @@ import ProgressList from "../issue/progress/ProgressList";
 
 const Board = () => {
   const issueState = useSelector((state: RootState) => state.issue);
+  const progressTitle = useSelector((state: RootState) => state.progress);
   const issueTitle = useSelector((state: RootState) => state.issueTitle);
   const userInput = useSelector((state: RootState) => state.userInput);
   const idState = useSelector((state: RootState) => state.id);
@@ -86,7 +87,14 @@ const Board = () => {
             </Button>
           </div>
           <div className="board-col" ref={setSecondDroppableRef}>
-            <p>IN PROGRESS</p>
+          <p>
+          IN PROGRESS{" "}
+              {progressTitle.length === 0
+                ? ""
+                : progressTitle.length === 1
+                ? `${progressTitle.length} ISSUE`
+                : `${progressTitle.length} ISSUES`}
+            </p>
             <ProgressList/>
           </div>
           <div className="board-col" ref={setThirdDroppableRef}>DONE</div>
