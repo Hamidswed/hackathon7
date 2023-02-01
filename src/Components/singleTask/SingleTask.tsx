@@ -1,4 +1,6 @@
-import React, { FormEvent, useState } from 'react'
+import React from 'react'
+import {Stack, Button} from '@mui/material/';
+
 import DeleteIcon from '../../images/icons/DeleteIcon'
 import DoneIcon from '../../images/icons/DoneIcon'
 import ImportantIcon from '../../images/icons/ImportantIcon'
@@ -16,41 +18,25 @@ interface SingleTaskInterface {
 }
 
 const SingleTask = ({name,onDelete,onToggleDone, onToggleImportant, addNewTask, important, done}: SingleTaskInterface)  => {
-  const [textForNewTask, setTextForNewTask] = useState('');
-
-  const onSubmitTaskForm= (event : FormEvent<HTMLFormElement> ) => {
-    event.preventDefault();
-    addNewTask(textForNewTask);
-    setTextForNewTask('');
-}
   
   return (
     <div className='task-container'>
       <li className="task-item">
-            <p className='status' onClick={onToggleDone}>{name}</p>
-            <div className="icon-container">
-                <button type="button" className="btn btn-outline-success" onClick={onToggleImportant}>
+            <p className={`task-subtitle ${important ? 'task-subtitle__important' : ''} ${done ? 'task-subtitle__done' : ''}`} onClick={onToggleDone}>{name}</p>
+            <Stack direction="row" spacing={2}>
+                <Button color="secondary" type="button" className='btn btn-outline-important' onClick={onToggleImportant}>
                     <ImportantIcon/>
-                </button>
+                </Button>
 
-                <button type="button" className="btn btn-outline-primary ms-1" onClick={onToggleDone}>
+                <Button variant="contained" color="success" type="button" className="btn btn-outline-primary" onClick={onToggleDone}>
                     <DoneIcon/>
-                </button>
+                </Button>
 
-                <button type="button" className="btn btn-outline-danger ms-1" onClick={onDelete}>
+                <Button variant="outlined" type="button" className="btn btn-outline-danger" onClick={onDelete}>
                     <DeleteIcon/>
-                </button>
-                <form action="" onSubmit={onSubmitTaskForm} className="task-form">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="What else do you want to do?"
-                    value={textForNewTask}
-                    onChange={(e) => {setTextForNewTask(e.target.value)}}
-                />
-                <button type="submit" className="btn">Add new task</button>
-                </form>
-            </div>
+                </Button>
+                
+            </Stack>
 
         </li>
     </div>

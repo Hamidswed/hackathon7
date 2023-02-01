@@ -3,23 +3,8 @@ import Alltasks from '../Components/allTasks/Alltasks'
 import { SingleTaskInterface, tasksDefault } from '../types/tasksType';
 
 const Tasks = () => {
-  const [searchObject, setSearchObject] = useState({inWork: '', done: '', filter: 'all'});
   const [task, setTask] = useState<SingleTaskInterface[] | []>(tasksDefault);
   const [visibleItems, setVisibleItems] = useState<SingleTaskInterface[] | []>(tasksDefault);
-  const [textForSearch, setTextForSearch] = useState('');
-
-  function getRandomArbitrary(min: number, max: number) {
-    return Math.random() * (max - min) + min;
-}
-
-const addNewTask = (subtitle: string) => {
-    return {
-        id: getRandomArbitrary(10, 100),
-        subtitle,
-        important: false,
-        done: false
-    }
-}
 
   const generalToggle = (arr: SingleTaskInterface[], id: number, propertyName: keyof SingleTaskInterface) => {
     const idx = arr.findIndex((item) => item.id === id);
