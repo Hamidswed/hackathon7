@@ -43,7 +43,13 @@ const issueSlice = createSlice({
     },
     addToProgress:(state,action)=>{
       state.progress.push(action.payload)
-    }
+    },
+    removeFromProgress: (state, action) => {
+      const updatedState = state.progress.filter(
+        (item) => item.id !== action.payload
+      );
+      state.progress = updatedState;
+    },
   }
 })
 
