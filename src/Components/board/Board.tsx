@@ -72,20 +72,20 @@ const Board = () => {
         <div className="board-cols">
           <div className="board-col" ref={setFirstDroppableRef}>
             <p>
-              To Do{" "}
+              TO DO{" "}
               {issueState.length === 0
-                ? "issue"
+                ? ""
                 : issueState.length === 1
-                ? `${issueState.length} issue`
-                : `${issueState.length} issues`}
+                ? `${issueState.length} ISSUE`
+                : `${issueState.length} ISSUES`}
             </p>
             <IssueList />
             <Button startIcon={<AddIcon />} onClick={createIssueHandler}>
               Create issue
             </Button>
           </div>
-          <div className="board-col" ref={setSecondDroppableRef}>col2</div>
-          <div className="board-col" ref={setThirdDroppableRef}>col3</div>
+          <div className="board-col" ref={setSecondDroppableRef}>IN PROGRESS</div>
+          <div className="board-col" ref={setThirdDroppableRef}>DONE</div>
         </div>
       </DndContext>
     </div>
